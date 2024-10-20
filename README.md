@@ -56,10 +56,17 @@ After that, put the chromedriver.exe file in the same directory as the script.py
 
 Now you can run the script!
 
-```
-# Run the Python app (while in venv, if not then activate it again)
+```bash
+# Run the script (while in venv, if not then activate it again)
 $ python script.py <location>
 
 # Example
 $ python script.py canada
+```
+
+If you have access to the .env file, add it in the same directory as bot.py and you can do the following:
+
+```bash
+# Run the bot (while in venv, if not then activate it again)
+$ python bot.py
 ```
