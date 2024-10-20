@@ -1,5 +1,7 @@
 # This example requires the 'message_content' intent.
 from dotenv import load_dotenv
+from functions import get_indeed_internships
+
 import os
 import discord
 
@@ -21,7 +23,10 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('!hello'):
-        await message.channel.send('what is up')
+    if message.content.startswith('!jobs'):
+        jobs = get_indeed_internships()
 
+        for job in jobs:
+            await message.channel.send("# " + job.company + "\n*" + job.position + "*\n" + job.location)
+            
 client.run(token)

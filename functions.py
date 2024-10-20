@@ -6,6 +6,12 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
+class JobPosting:
+  def __init__(self, position, company, location):
+    self.position = position
+    self.company = company
+    self.location = location
+
 def get_indeed_internships(location: str = "Canada"):
   service = Service(executable_path="./chromedriver.exe")
   driver = webdriver.Chrome(service=service)
@@ -50,13 +56,22 @@ def get_indeed_internships(location: str = "Canada"):
   words_to_check_internships = ["intern", "co-op", "coop", "internship", "student"]
   words_to_check_software = ["software", "IT"]
 
+  jobs_output = []
+
   for job in job_positions:
     if any(word in job.text.lower() for word in words_to_check_internships):
       if any(word in job.text.lower() for word in words_to_check_software):
-        print("Position: " + job_positions[job_positions.index(job)].text)
-        print("Company: " + job_company_names[job_positions.index(job)].text)
-        print("Location: " + job_locations[job_positions.index(job)].text + '\n')
+        position = job_positions[job_positions.index(job)].text
+        company = job_company_names[job_positions.index(job)].text
+        location = job_locations[job_positions.index(job)].text
+        job = JobPosting(position, company, location)
+
+        print("Position: " + position)
+        print("Company: " + company)
+        print("Location: " + location + '\n')
+
+        jobs_output.append(job)
 
   time.sleep(1)  
-  time.sleep(60*15)  
   driver.quit()
+  return jobs_output
