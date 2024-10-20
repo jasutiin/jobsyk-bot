@@ -44,8 +44,8 @@ $ venv\Scripts\activate
 # Install the required Python packages
 $ pip install -r requirements.txt
 
-# Run the Python app
-$ python script.py <location>
+# Exit out of venv
+$ deactivate
 ```
 
 You also need to install [ChromeDriver](https://developer.chrome.com/docs/chromedriver/downloads). Make sure to install the version compatible with your Chrome browser. You can check this by:
