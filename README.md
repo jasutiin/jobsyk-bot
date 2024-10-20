@@ -43,9 +43,6 @@ $ venv\Scripts\activate
 
 # Install the required Python packages
 $ pip install -r requirements.txt
-
-# Exit out of venv
-$ deactivate
 ```
 
 You also need to install [ChromeDriver](https://developer.chrome.com/docs/chromedriver/downloads). Make sure to install the version compatible with your Chrome browser. You can check this by:
@@ -60,7 +57,7 @@ After that, put the chromedriver.exe file in the same directory as the script.py
 Now you can run the script!
 
 ```
-# Run the Python app
+# Run the Python app (while in venv, if not then activate it again)
 $ python script.py <location>
 
 # Example
