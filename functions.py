@@ -1,5 +1,4 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 import time
 
@@ -10,8 +9,7 @@ class JobPosting:
     self.location = location
 
 def get_indeed_internships(location: str = "Canada"):
-  service = Service(executable_path="./chromedriver.exe")
-  driver = webdriver.Chrome(service=service)
+  driver = webdriver.Chrome()
 
   driver.get('https://ca.indeed.com/jobs?q=software+intern&l=%s&sort=date' % location)
 
